@@ -28,4 +28,4 @@ perform_login
 # as that user.
 use_browser "linux"
 use_location :country => "United States", :state => "New York", :city => "New York"
-perform_login
+assess_fraud_cost(perform_login)

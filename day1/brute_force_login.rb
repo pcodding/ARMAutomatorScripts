@@ -25,11 +25,11 @@ set_user_ip_address FRAUDULENT_IP
   result = assess_fraud_cost(perform_invalid_login)
   ### Troubleshooting
   ## Print the list of actions, alerts, and risk score for each runtime
-  #puts result
+  puts result
   
   ## Print the list of rules triggered for Pre-Auth
-  #puts print_triggered_rules result.preAuthResult
+  puts print_triggered_rules result.preAuthResult
   
   ## Print the list of rules triggered for Post-Auth
-  #puts print_triggered_rules result.postAuthResult
+  #@puts print_triggered_rules result.postAuthResult
 end
