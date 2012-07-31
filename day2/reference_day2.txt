@@ -1,0 +1,26 @@
+# Configure country pattern rule
+load_random_user
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+use_location :country => "Canada"
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+
+# Configure city pattern rule
+use_location :country => "Canada"
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+use_location :country => "Canada"
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+
+# Configure the time pattern rule
+create_test_user :login_id_prefix => "test", :external_user_id_suffix => "@gmail.com", :group => "training"
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+
+# Execute SQL
+SELECT * FROM vt_wf_hours WHERE UPDATE_TIME > TO_DATE('2012/07/30', 'yyyy/mm/dd') order by OBJECT_ID desc;
+
+# Execute ARM Automator commands
+decrement_time :hours => 8
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+
+decrement_time :hours => 8
+5.times { result = perform_login ; puts print_triggered_rules result.postAuthResult }
+remove_user :login_id => @user.login_id
