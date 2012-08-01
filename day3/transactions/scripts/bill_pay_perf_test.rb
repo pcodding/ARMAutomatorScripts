@@ -1,15 +1,3 @@
-# ========================================================================
-#  Author: IntegratID Solutions, LLC
-#  ARM Automator
-#  (c) Copyright 2010 IntegratID Solutions, LLC. All Rights Reserved.
-#  Last Updated: July 25th, 2010
-#
-#  Descrtiption: This script is used to performance test the bill pay
-#     transaction.  It will spawn 2 threads and each thread will execute
-#     the TransactionTest class's test method as many times as possible.
-#     The results will be recorded and are visible from the web interface
-#     under the performance test named "Billpay Test".
-# ========================================================================
 require 'jruby/scriptable_performance_test_runner'
 require File.dirname(__FILE__) + '/transaction_helper'
 
@@ -24,7 +12,7 @@ class TransactionTest < ScriptablePerformanceTest
   include TransactionHelper
   
   def test
-    load_random_user
+    create_test_user :login_id_prefix => "test", :external_user_id_suffix => "@gmail.com", :group => "training"
     perform_login
     
     contextData = Hash.new
@@ -50,6 +38,7 @@ class TransactionTest < ScriptablePerformanceTest
     # Run the custom runtime
     run_transaction :transactionType => "bill_pay", :contextMap => contextData, :status => 2
     result = run_rules :runtime => 600, :contextMap => contextData
+    remove_user :login_id => @user.login_id
   end
 end
 BillPayPerformanceTest.run

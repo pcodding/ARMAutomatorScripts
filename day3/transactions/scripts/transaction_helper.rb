@@ -1,12 +1,3 @@
-# ========================================================================
-#  Author: IntegratID Solutions, LLC
-#  ARM Automator
-#  (c) Copyright 2010 IntegratID Solutions, LLC. All Rights Reserved.
-#  Last Updated: July 25th, 2010
-#
-#  Descrtiption: This class is used to contain helper methods that can be
-#    used to generate random dollar amounts or account numbers, etc.
-# ========================================================================
 module TransactionHelper
   
   # Generate a random account number that is 10 characters long

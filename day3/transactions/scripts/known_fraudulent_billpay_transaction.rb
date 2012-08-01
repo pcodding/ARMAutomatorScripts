@@ -17,7 +17,7 @@ include ArmAutomatorLanguage
 include TransactionHelper
 
 @automator = ArmAutomator.instance
-load_random_user
+create_test_user :login_id_prefix => "test", :external_user_id_suffix => "@gmail.com", :group => "training"
 perform_login
   
 contextData = Hash.new
@@ -51,3 +51,5 @@ result = run_rules :runtime => 600, :contextMap => contextData
 # Troubleshooting: Print the rules result and all triggered rules
 puts result
 puts print_triggered_rules result
+
+remove_user :login_id => @user.login_id

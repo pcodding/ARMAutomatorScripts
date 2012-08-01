@@ -1,13 +1,3 @@
-# ========================================================================
-#  Author: IntegratID Solutions, LLC
-#  ARM Automator
-#  (c) Copyright 2010 IntegratID Solutions, LLC. All Rights Reserved.
-#  Last Updated: July 25th, 2010
-#
-#  Descrtiption: This script will load a random user and perform a BillPay
-#    using a source account that has never been used before to a known
-#    destination account.
-# ========================================================================
 require 'pp'
 require 'jruby/arm_automator'
 require 'jruby/arm_automator_language'
@@ -16,7 +6,7 @@ include ArmAutomatorLanguage
 include TransactionHelper
 
 @automator = ArmAutomator.instance
-load_random_user
+create_test_user :login_id_prefix => "test", :external_user_id_suffix => "@gmail.com", :group => "training"
 
 3.times {
   perform_login
@@ -51,3 +41,5 @@ load_random_user
   puts result
   puts print_triggered_rules result
 }
+
+remove_user :login_id => @user.login_id
