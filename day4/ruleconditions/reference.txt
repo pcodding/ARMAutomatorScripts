@@ -1,0 +1,16 @@
+Out-of-the-box rule conditions
+------------------------------
+  ~/OAAM/10.1.4.5/oaam_rule_conditions/conditions/*.xml
+  
+OARM API path
+-------------
+  ~/OAAM/10.1.4.5/oaam_native/oaam_native_soap/docs/javadoc/oarm-native-javadocs.zip
+
+Condition Parameter Types
+--------------------------
+  ~/OAAM/oarm/WEB-INF/classes/common_enums.properties
+
+Jar deploy path
+-------------
+  ~/OAAM/oarm/WEB-INF/classes
+  

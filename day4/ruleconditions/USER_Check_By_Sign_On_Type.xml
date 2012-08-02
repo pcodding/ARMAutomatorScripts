@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Condition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" global_id="user_check_by_signon_type.condition0">
+ 
+  <!-- Name and description --> 
+  <Name>USER: Check By Sign-On Type</Name>
+  <NameRBKey>tracker.rule.condition.user_check_by_signon_type.condition0.name.RBKey</NameRBKey> 
+  <Description>Check information about a user from external sources based on the sign_on type</Description>
+  <DescriptionRBKey>tracker.rule.condition.user_check_by_signon_type.condition0.description.RBKey</DescriptionRBKey>
+ 
+  <Version>10.1.4.5</Version>
+
+  <!-- What kind of condition is it? -->
+  <ConditionType>user</ConditionType>
+
+  <!--What is being checked? -->
+  <RuleCondition>
+    <java:condition>com.zirous.oaam.rules.SampleRule.runRuleLogic(trackerSession, signOnType)</java:condition>
+  </RuleCondition>
+
+  <!--Rule that can use this conditions -->
+  <TypeList>
+    <Type>user</Type>
+    <Type>device</Type>
+    <Type>location</Type>
+    <Type>session</Type>
+  </TypeList>
+
+  <Params>
+    <Param global_id="user_check_by_signon_type.condition0.param.signOnType">
+    
+      <Name>signOnType</Name>
+      <NameRBKey>tracker.rule.condition.param.signOnType.label.RBKey</NameRBKey>
+      <Description />
+      <DescriptionRBKey>tracker.rule.condition.param.signOnType.description.RBKey</DescriptionRBKey>
+      <Label>User's sign-on type </Label>
+      <LabelRBKey>tracker.rule.condition.param.user_check_by_signon_type.condition0.param.signOnType.label.RBKey</LabelRBKey>
+   
+      <!-- Types: Java and OAAM -->
+      <JavaClass>java.lang.String</JavaClass>
+      <ValueType>value.type.enum.string</ValueType>
+      <ValueSubType />
+<!--      <Default>60</Default> -->
+      <Validations />
+      <ParamOrder>1</ParamOrder>
+      <Notes />
+    </Param>
+  </Params>
+</Condition>
